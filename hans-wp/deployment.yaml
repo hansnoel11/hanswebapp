@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deploymemt
+metadata:
+  name: nginx
+  Namespace: prod
+  labels:
+    app: nginx
+spec: 
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template: 
+    metadata:
+      labels:
+       app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: hansnoel11/wordpress:v13
+          ports:
+           - containerPort: 80
